@@ -2,7 +2,7 @@ package conta_bancaria.model;
 
 import java.text.NumberFormat;
 
-public class Conta {
+public abstract class Conta {
 
 	// Atributos da Classe
 	private int numero;
@@ -10,7 +10,7 @@ public class Conta {
 	private int tipo;
 	private String titular;
 	private float saldo;
-	
+
 	// Método Construtor
 	public Conta(int numero, int agencia, int tipo, String titular, float saldo) {
 		this.numero = numero;
@@ -19,8 +19,9 @@ public class Conta {
 		this.titular = titular;
 		this.saldo = saldo;
 	}
-	
-	public Conta() {}
+
+	public Conta() {
+	}
 
 	// Métodos Get e Set
 	public int getNumero() {
@@ -62,39 +63,38 @@ public class Conta {
 	public void setSaldo(float saldo) {
 		this.saldo = saldo;
 	}
-	
+
 	// Métodos Bancários
 	public boolean sacar(float valor) {
 		if (this.saldo < valor) {
 			System.out.println("\nSaldo é Insuficiente");
 			return false;
 		}
-		//this.saldo -= valor;
+		// this.saldo -= valor;
 		this.setSaldo(this.saldo - valor);
 		return true;
 	}
-	
+
 	public void depositar(float valor) {
-		//this.saldo += valor;
+		// this.saldo += valor;
 		this.setSaldo(this.saldo + valor);
 
 	}
-	
-	
+
 	// Métodos para visualizar os dados da conta
 	public void visualizar() {
-		
+
 		NumberFormat nfMoeda = NumberFormat.getCurrencyInstance();
-		
+
 		String tipo = "";
-		
-		switch(this.tipo) {
-			case 1 -> tipo = "Conta Corrente";
-			case 2 -> tipo = "Conta Poupança";
-			default -> tipo = "Invalido";
-			
+
+		switch (this.tipo) {
+		case 1 -> tipo = "Conta Corrente";
+		case 2 -> tipo = "Conta Poupança";
+		default -> tipo = "Invalido";
+
 		}
-		
+
 		System.out.println("********************************");
 		System.out.println("DADOS DA CONTA					");
 		System.out.println("********************************");
@@ -103,6 +103,6 @@ public class Conta {
 		System.out.println("Numero da Agencia: " + this.agencia);
 		System.out.println("Tipo da conta: " + tipo);
 		System.out.println("Saldo da Conta: " + nfMoeda.format(this.saldo));
-		
+
 	}
 }

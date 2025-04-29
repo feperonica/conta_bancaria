@@ -1,83 +1,65 @@
 package conta_bancaria;
 
-import java.time.LocalDate;
 import java.util.Scanner;
 
 import conta_bancaria.model.ContaCorrente;
-import conta_bancaria.model.Conta;
 import conta_bancaria.model.ContaPoupanca;
 import conta_bancaria.util.Cores;
 
 public class Menu {
 
 	public static void main(String[] args) {
-		
+
 		Scanner leia = new Scanner(System.in);
 
 		int opcao;
-		
-		// Criar (instanciar) um Objeto da Classe Conta
-		Conta c1 = new Conta(1, 123, 1, "Felipe", 500000);
-		c1.visualizar();
-		
-		// Sacar
-		c1.sacar(100);
-		c1.visualizar();
-		
-		// Depositar
-		c1.depositar(1000);
-		c1.visualizar();
-		
-		// Alterar a propriedade titular
-		c1.setTitular("Felipe Peronica");
-		c1.visualizar();
-		
+
 		// Instanciando um Objeto da Classe conta Corrente
 		ContaCorrente cc1 = new ContaCorrente(2, 456, 1, "Felipe Ferreira", 600000, 60000);
 		cc1.visualizar();
-		
+
 		cc1.sacar(659000);
 		cc1.visualizar();
-		
+
 		cc1.depositar(50000);
 		cc1.visualizar();
-		
+
 		ContaPoupanca cp1 = new ContaPoupanca(3, 500, 1, "Felipe da Silva", 2000, 15);
 		cp1.visualizar();
-		
-		
+
 		while (true) {
-		
-		System.out.println(Cores.ANSI_YELLOW_BACKGROUND + Cores.TEXT_BLUE_BOLD + "█▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀█");
-		System.out.println("█                                                   █");
-		System.out.println("█                BANCO DO BRAZIL COM Z              █");
-		System.out.println("█                                                   █");
-		System.out.println("█▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀█");
-		System.out.println("█                                                   █");
-		System.out.println("█           1 - Criar Conta                         █");
-		System.out.println("█           2 - Listar todas as Contas              █");
-		System.out.println("█           3 - Buscar Conta por Numero             █");
-		System.out.println("█           4 - Atualizar Dados da Conta            █");
-		System.out.println("█           5 - Apagar Conta                        █");
-		System.out.println("█           6 - Sacar                               █");
-		System.out.println("█           7 - Depositar                           █");
-		System.out.println("█           8 - Transferir valores entre Contas     █");
-		System.out.println("█           9 - Sair                                █");
-		System.out.println("█                                                   █");
-		System.out.println("█▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀█");
-		System.out.println("█Entre com a opção desejada:                        █");
-		System.out.println("█                                                   █" + Cores.TEXT_RESET);
 
-		opcao = leia.nextInt();
+			System.out.println(Cores.ANSI_YELLOW_BACKGROUND + Cores.TEXT_BLUE_BOLD
+					+ "█▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀█");
+			System.out.println("█                                                   █");
+			System.out.println("█                BANCO DO BRAZIL COM Z              █");
+			System.out.println("█                                                   █");
+			System.out.println("█▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀█");
+			System.out.println("█                                                   █");
+			System.out.println("█           1 - Criar Conta                         █");
+			System.out.println("█           2 - Listar todas as Contas              █");
+			System.out.println("█           3 - Buscar Conta por Numero             █");
+			System.out.println("█           4 - Atualizar Dados da Conta            █");
+			System.out.println("█           5 - Apagar Conta                        █");
+			System.out.println("█           6 - Sacar                               █");
+			System.out.println("█           7 - Depositar                           █");
+			System.out.println("█           8 - Transferir valores entre Contas     █");
+			System.out.println("█           9 - Sair                                █");
+			System.out.println("█                                                   █");
+			System.out.println("█▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀█");
+			System.out.println("█Entre com a opção desejada:                        █");
+			System.out.println("█                                                   █" + Cores.TEXT_RESET);
 
-		if (opcao == 9) {
-			System.out.println("\nBanco do Brazil com Z - O seu Futuro começa aqui!");
-			sobre();
-             leia.close();
-			System.exit(0);
-		}
+			opcao = leia.nextInt();
 
-		switch (opcao) {
+			if (opcao == 9) {
+				System.out.println("\nBanco do Brazil com Z - O seu Futuro começa aqui!");
+				sobre();
+				leia.close();
+				System.exit(0);
+			}
+
+			switch (opcao) {
 			case 1:
 				System.out.println("Criar Conta\n\n");
 
@@ -113,16 +95,16 @@ public class Menu {
 			default:
 				System.out.println("\nOpção Inválida!\n");
 				break;
+			}
 		}
 	}
-}
 
-public static void sobre() {
-	System.out.println("\n***********************************************************");
-	System.out.println("Projeto Desenvolvido por:Felipe da Silva Peronica Ferreira   ");
-	System.out.println("Felipe Peronica - felipeperonica@gmail.com                   ");
-	System.out.println("https://github.com/feperonica/                               ");
-	System.out.println("***********************************************************");
+	public static void sobre() {
+		System.out.println("\n***********************************************************");
+		System.out.println("Projeto Desenvolvido por:Felipe da Silva Peronica Ferreira   ");
+		System.out.println("Felipe Peronica - felipeperonica@gmail.com                   ");
+		System.out.println("https://github.com/feperonica/                               ");
+		System.out.println("***********************************************************");
 	}
 
 }
