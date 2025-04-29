@@ -1,8 +1,11 @@
 package conta_bancaria;
 
+import java.time.LocalDate;
 import java.util.Scanner;
 
+import conta_bancaria.model.ContaCorrente;
 import conta_bancaria.model.Conta;
+import conta_bancaria.model.ContaPoupanca;
 import conta_bancaria.util.Cores;
 
 public class Menu {
@@ -29,6 +32,20 @@ public class Menu {
 		c1.setTitular("Felipe Peronica");
 		c1.visualizar();
 		
+		// Instanciando um Objeto da Classe conta Corrente
+		ContaCorrente cc1 = new ContaCorrente(2, 456, 1, "Felipe Ferreira", 600000, 60000);
+		cc1.visualizar();
+		
+		cc1.sacar(659000);
+		cc1.visualizar();
+		
+		cc1.depositar(50000);
+		cc1.visualizar();
+		
+		ContaPoupanca cp1 = new ContaPoupanca(3, 500, 1, "Felipe da Silva", 2000, 15);
+		cp1.visualizar();
+		
+		
 		while (true) {
 		
 		System.out.println(Cores.ANSI_YELLOW_BACKGROUND + Cores.TEXT_BLUE_BOLD + "█▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀█");
@@ -49,7 +66,7 @@ public class Menu {
 		System.out.println("█                                                   █");
 		System.out.println("█▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀█");
 		System.out.println("█Entre com a opção desejada:                        █");
-		System.out.println("                                                     " + Cores.TEXT_RESET);
+		System.out.println("█                                                   █" + Cores.TEXT_RESET);
 
 		opcao = leia.nextInt();
 
