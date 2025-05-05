@@ -17,9 +17,9 @@ public class Menu {
 
 		ContaController contas = new ContaController();
 
-		int opcao, numero, agencia, tipo, aniversario;
+		int opcao, numero, agencia, tipo, aniversario, numeroDestino;
 		String titular;
-		float saldo, limite;
+		float saldo, limite, valor;
 
 		// Dados para teste
 
@@ -139,13 +139,13 @@ public class Menu {
 						case 1 -> { // Se for conta Corrente
 							System.out.println("Digite o limite da conta:");
 							limite = leia.nextFloat();
-							contas.cadastrar(
+							contas.atualizar(
 									new ContaCorrente(numero, agencia, tipo, titular, saldo, limite));
 						}
 						case 2 -> { // Se for Conta Poupança
 							System.out.println("Digite o dia do aniversario da conta:");
 							aniversario = leia.nextInt();
-							contas.cadastrar(
+							contas.atualizar(
 									new ContaPoupanca(numero, agencia, tipo, titular, saldo, aniversario));
 						}
 
@@ -169,15 +169,42 @@ public class Menu {
 			case 6:
 				System.out.println("Saque\n\n");
 
+				System.out.println("Digite o numero da conta: ");
+				numero = leia.nextInt();
+				
+				System.out.println("Digite o valor do saque: ");
+				valor = leia.nextFloat();
+				
+				contas.sacar(numero, valor);
+				
 				keyPress();
 				break;
 			case 7:
 				System.out.println("Depósito\n\n");
+				
+				System.out.println("Digite o numero da conta: ");
+				numero = leia.nextInt();
+				
+				System.out.println("Digite o valor do deposito: ");
+				valor = leia.nextFloat();
+				
+				contas.depositar(numero, valor);
 
 				keyPress();
 				break;
 			case 8:
 				System.out.println("Transferência entre Contas\n\n");
+				
+				System.out.println("Digite o numero da conta de Origem: ");
+				numero = leia.nextInt();
+				
+				System.out.println("Digite o numero da conta de Destino");
+				numeroDestino = leia.nextInt();
+				
+				System.out.println("Digite o valor da Transferencia: ");
+				valor = leia.nextFloat();
+				
+				contas.transferir(numero, numeroDestino, valor);
 
 				keyPress();
 				break;
