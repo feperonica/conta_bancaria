@@ -105,13 +105,16 @@ public class ContaController implements ContaRepository {
 		Optional<Conta> contaOrigem = buscarNaCollection(numeroOrigem);
 		Optional<Conta> contaDestino = buscarNaCollection(numeroDestino);
 
-		if (contaOrigem.isPresent() && contaDestino.isPresent()) {
-			if (contaOrigem.get().sacar(valor) == true)
-			contaDestino.get().depositar(valor);
-			System.out.printf("\nA Transferencia no valor de %s, da Conta número %d para a Conta %d foi efetuada com sucesso",nfMoeda.format(valor), numero, numero);
-		} else
-			System.out.printf("\nA Conta %d não foi encontrada", numero);
+	    if (contaOrigem.isPresent() && contaDestino.isPresent()) {
+	        if (contaOrigem.get().sacar(valor)) {
+	            contaDestino.get().depositar(valor);
 
+	            System.out.printf("\nA Transferência no valor de %s, da Conta número %d para a Conta %d foi efetuada com sucesso!",
+	                nfMoeda.format(valor), numeroOrigem, numeroDestino);
+	        }
+	    } else {
+	        System.out.printf("\nA Conta de origem ou destino não foi encontrada.");
+	    }
 	}
 
 	// Métodos Auxiliares
